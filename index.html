@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ayuva – Everyday Ayurveda</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+tailwind.config = { theme: { extend: {
+  fontFamily: { serif: ['Fraunces','Georgia','serif'], sans: ['"DM Sans"','system-ui','sans-serif'] },
+  colors: { bg:'var(--bg)', card:'var(--card)', ink:'var(--ink)', muted:'var(--muted)', line:'var(--line)', deep:'var(--deep)', ondeep:'var(--ondeep)', leaf:'var(--leaf)', gold:'var(--gold)', warn:'var(--warn)' }
+}}};
+</script>
+<style>
+:root{--bg:#F6F0E2;--card:#FCF8EE;--ink:#152820;--muted:#4D5F55;--line:#DCD2B8;--deep:#152820;--ondeep:#F6F0E2;--leaf:#5F8450;--gold:#A8772A;--warn:#8E2F20;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1A14;--card:#16251D;--ink:#EFE8D6;--muted:#A9B8AC;--line:#2A3D32;--deep:#08110C;--ondeep:#EFE8D6;--leaf:#8DB07B;--gold:#D4A04A;--warn:#F08B78}}
+:root[data-theme="dark"]{--bg:#0E1A14;--card:#16251D;--ink:#EFE8D6;--muted:#A9B8AC;--line:#2A3D32;--deep:#08110C;--ondeep:#EFE8D6;--leaf:#8DB07B;--gold:#D4A04A;--warn:#F08B78}
+html{scroll-behavior:smooth;scroll-padding-top:calc(5rem + env(safe-area-inset-top,0px))}
+body{background:var(--bg);color:var(--ink);font-family:'DM Sans',system-ui,sans-serif;line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--deep);z-index:60}
+h1,h2,h3,.serif{font-family:Fraunces,Georgia,serif;line-height:1.15}
+.btn{display:inline-flex;align-items:center;gap:.5rem;border-radius:9999px;padding:.7rem 1.4rem;font-weight:600;transition:opacity .15s}
+.btn:hover{opacity:.88}.btn-gold{background:var(--gold);color:#fff}.btn-line{border:1px solid currentColor}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.chip{border:1px solid var(--line);border-radius:9999px;padding:.35rem .9rem;font-size:.9rem;background:var(--card);cursor:pointer}
+.chip:hover,.chip[aria-pressed="true"]{background:var(--deep);color:var(--ondeep);border-color:var(--deep)}
+dialog{border:0;border-radius:1.25rem;padding:0;max-width:min(32rem,92vw);background:var(--card);color:var(--ink)}
+dialog::backdrop{background:rgba(8,17,12,.72)}
+.fade{animation:fade .35s ease}@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+input[type=checkbox]{accent-color:var(--leaf);width:1.25rem;height:1.25rem}
+.field{background:var(--bg);border:1px solid var(--line);border-radius:.75rem;padding:.65rem .9rem;color:var(--ink);width:100%}
+</style>
+</head>
+<body>
+
+<header class="sticky z-50 bg-deep text-ondeep" style="top:env(safe-area-inset-top,0px)">
+  <nav class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between gap-6" aria-label="Main">
+    <a href="#home" class="serif text-2xl font-semibold tracking-wide">Ayuva</a>
+    <ul class="flex gap-6 text-sm overflow-x-auto whitespace-nowrap">
+      <li><a class="hover:text-gold" href="#home">Home</a></li>
+      <li><a class="hover:text-gold" href="#remedies">Remedies</a></li>
+      <li><a class="hover:text-gold" href="#checker">AI Symptom Checker</a></li>
+      <li><a class="hover:text-gold" href="#videos">Educational Videos</a></li>
+      <li><a class="hover:text-gold" href="#routine">Daily Routine</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+<section id="home" class="bg-deep text-ondeep relative overflow-hidden">
+  <svg class="absolute -right-24 -top-10 w-[34rem] opacity-[.13] pointer-events-none" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M100 190C100 120 100 60 100 10M100 150C70 140 50 120 45 90c30 5 50 25 55 60M100 120c30-8 50-28 55-58-30 5-50 25-55 58M100 80C80 72 68 58 66 38c22 4 34 20 34 42M100 60c20-6 32-18 36-36-20 4-32 16-36 36"/></svg>
+  <div class="max-w-6xl mx-auto px-5 py-20 md:py-28 relative">
+    <h1 class="text-4xl md:text-6xl font-semibold max-w-3xl">Ayurveda for the ordinary day</h1>
+    <p class="mt-6 max-w-xl text-lg opacity-85">Describe how you feel and get gentle home remedies, food guidance, yoga and daily routines rooted in Ayurveda. Serious symptoms are sent straight to a doctor.</p>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a href="#checker" class="btn btn-gold">Check a symptom</a>
+      <a href="#routine" class="btn btn-line">Start today’s check-in</a>
+    </div>
+    <div class="mt-10 flex flex-wrap gap-2 text-sm" id="heroChips"></div>
+  </div>
+</section>
+
+<section id="remedies" class="max-w-6xl mx-auto px-5 py-20">
+  <h2 class="text-3xl md:text-4xl font-semibold">Kitchen remedies worth knowing</h2>
+  <p class="mt-3 text-muted max-w-xl">Simple preparations from the Ayurvedic pantry. Pick one to see the full guidance in the symptom checker.</p>
+  <div id="remedyGrid" class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"></div>
+</section>
+
+<section id="checker" class="bg-card border-y border-line">
+  <div class="max-w-4xl mx-auto px-5 py-20">
+    <h2 class="text-3xl md:text-4xl font-semibold">What’s bothering you today?</h2>
+    <p class="mt-3 text-muted">Type a concern in your own words, such as “dry cough at night” or “bloating after meals”.</p>
+    <form id="checkForm" class="mt-8 flex flex-col sm:flex-row gap-3" novalidate>
+      <label for="q" class="sr-only">Your health concern</label>
+      <input id="q" class="field text-base" placeholder="e.g. headache, stress, bloating" autocomplete="off" maxlength="200">
+      <button class="btn btn-gold justify-center" type="submit">Get guidance</button>
+    </form>
+    <div class="mt-4 flex flex-wrap gap-2" id="quickChips"></div>
+    <p id="formMsg" class="mt-3 text-sm text-warn" role="alert"></p>
+    <div id="results" class="mt-10" aria-live="polite"></div>
+    <p class="mt-10 text-sm text-muted">Ayuva shares general educational information and is not a diagnosis or a substitute for medical care. If you are pregnant, on medication or managing a long-term condition, check with your doctor first.</p>
+  </div>
+</section>
+
+<section id="videos" class="max-w-6xl mx-auto px-5 py-20">
+  <h2 class="text-3xl md:text-4xl font-semibold">Short lessons on doshas and Dinacharya</h2>
+  <p class="mt-3 text-muted max-w-xl">Under ten minutes each. Watch one with your morning tea.</p>
+  <div id="videoGrid" class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"></div>
+</section>
+
+<section id="routine" class="bg-card border-t border-line">
+  <div class="max-w-6xl mx-auto px-5 py-20">
+    <h2 class="text-3xl md:text-4xl font-semibold">Your daily routine</h2>
+    <div class="mt-10 grid gap-8 lg:grid-cols-2">
+      <div class="rounded-2xl border border-line bg-bg p-6">
+        <h3 class="text-2xl font-semibold">Today’s check-in</h3>
+        <form id="checkinForm" class="mt-5 space-y-5">
+          <fieldset><legend class="text-sm font-semibold mb-2">Mood</legend><div class="flex flex-wrap gap-2" data-group="mood"></div></fieldset>
+          <fieldset><legend class="text-sm font-semibold mb-2">Energy</legend><div class="flex flex-wrap gap-2" data-group="energy"></div></fieldset>
+          <fieldset><legend class="text-sm font-semibold mb-2">Digestion</legend><div class="flex flex-wrap gap-2" data-group="digestion"></div></fieldset>
+          <div><label for="sleep" class="text-sm font-semibold">Hours slept</label>
+            <input id="sleep" type="number" min="0" max="14" step="0.5" value="7" class="field mt-2 max-w-[8rem]"></div>
+          <div class="flex items-center gap-4"><button class="btn btn-gold" type="submit">Save check-in</button><span id="checkinMsg" class="text-sm text-leaf" role="status"></span></div>
+        </form>
+        <div class="mt-6"><p class="text-sm font-semibold">Last 7 days</p><div id="week" class="mt-2 flex gap-2"></div></div>
+      </div>
+
+      <div class="rounded-2xl border border-line bg-bg p-6">
+        <div class="flex items-baseline justify-between gap-4"><h3 class="text-2xl font-semibold">Medicine and herb reminders</h3><span id="progress" class="text-sm text-muted whitespace-nowrap"></span></div>
+        <ul id="remList" class="mt-5 divide-y divide-line"></ul>
+        <form id="remForm" class="mt-5 grid grid-cols-[1fr_auto_auto] gap-2 items-end">
+          <div><label for="remName" class="text-sm font-semibold">Name</label><input id="remName" class="field mt-1" placeholder="e.g. Triphala at bedtime" maxlength="60" required></div>
+          <div><label for="remTime" class="text-sm font-semibold">Time</label><input id="remTime" type="time" value="08:00" class="field mt-1" required></div>
+          <button class="btn btn-gold" type="submit">Add</button>
+        </form>
+        <p class="mt-3 text-xs text-muted">Reminders are saved in this browser until the backend is connected.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="bg-deep text-ondeep py-10 text-center text-sm opacity-90"><p class="serif text-xl">Ayuva</p><p class="mt-1">Everyday Ayurveda. Educational only, never a replacement for medical care.</p></footer>
+
+<dialog id="redFlag" aria-labelledby="rfTitle">
+  <div class="p-7">
+    <h2 id="rfTitle" class="text-2xl font-semibold text-warn">Please consult a certified Ayurvedic doctor</h2>
+    <p class="mt-3">What you described may need prompt, in-person care, so we are not suggesting home remedies for it. Please see a qualified doctor soon.</p>
+    <p class="mt-3 font-semibold">If you have trouble breathing, chest pain, or are coughing up blood, seek emergency care now. In India, call 112 or 108.</p>
+    <div class="mt-6 flex flex-wrap gap-3 justify-end">
+      <button class="btn btn-line" data-close>Close</button>
+      <a class="btn btn-gold" href="tel:112">Call 112</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="vidModal" aria-labelledby="vidTitle">
+  <div class="p-6">
+    <div class="aspect-video rounded-xl bg-deep text-ondeep grid place-items-center text-center p-4 text-sm" id="vidStage"></div>
+    <h2 id="vidTitle" class="mt-4 text-xl font-semibold"></h2>
+    <p id="vidDesc" class="mt-1 text-muted text-sm"></p>
+    <div class="mt-5 text-right"><button class="btn btn-line" data-close>Close</button></div>
+  </div>
+</dialog>
+
+<script>
+/* ---------- API layer: set API.base to your backend URL to go live ---------- */
+const API = {
+  base: null, // e.g. "https://api.ayuva.in"
+  async request(path, opts) {
+    const res = await fetch(this.base + path, { headers: { "Content-Type": "application/json" }, ...opts });
+    if (!res.ok) throw new Error("Request failed: " + res.status);
+    return res.json();
+  },
+  // Expected response: { redFlag: boolean, result?: { title, remedies[], dos[], donts[], lifestyle[], yoga[] } | null }
+  async checkSymptoms(query) {
+    if (this.base) return this.request("/symptoms/check", { method: "POST", body: JSON.stringify({ query }) });
+    await new Promise(r => setTimeout(r, 600));
+    return Mock.check(query);
+  },
+  async saveCheckin(entry) { if (this.base) return this.request("/checkins", { method: "POST", body: JSON.stringify(entry) }); return Store.set("checkins", { ...Store.get("checkins", {}), [entry.date]: entry }); },
+  async getCheckins() { if (this.base) return this.request("/checkins"); return Store.get("checkins", {}); },
+  async getReminders() { if (this.base) return this.request("/reminders"); return Store.get("reminders", []); },
+  async saveReminders(list) { if (this.base) return this.request("/reminders", { method: "PUT", body: JSON.stringify(list) }); return Store.set("reminders", list); }
+};
+
+const Store = {
+  get(k, fb) { try { const v = localStorage.getItem("ayuva:" + k); return v ? JSON.parse(v) : fb; } catch { return fb; } },
+  set(k, v) { try { localStorage.setItem("ayuva:" + k, JSON.stringify(v)); } catch {} return v; }
+};
+
+/* ---------- Local mock content (replace with backend responses) ---------- */
+const RED_FLAGS = /chest\s*(pain|tight)|blood.*(sputum|cough|phlegm|stool|vomit)|cough(ing)?\s*(up\s*)?blood|(high|severe|very high)\s*fever|fever.*(104|105|severe)|(difficulty|trouble|hard)\s*(in\s*)?breath|breathless|can.?t breathe|shortness of breath|faint|unconscious|seizure|paralysis|slurred speech|suicid|self.?harm|severe (abdominal|stomach) pain/i;
+
+const Mock = {
+  data: [
+    { keys: ["cough","cold","throat","phlegm"], title: "Cough and throat irritation",
+      remedies: ["Sip warm water with 1 tsp honey and a pinch of black pepper (not for children under 1).","Boil tulsi leaves and ginger in water for 5 minutes and drink it warm.","Gargle with warm salt water twice a day.","Mix ¼ tsp turmeric in warm milk at bedtime."],
+      dos: ["Warm soups and light khichdi","Warm water through the day","Rest your voice"], donts: ["Cold drinks and ice cream","Curd at night","Fried or heavy food"],
+      lifestyle: ["Sleep with your head slightly raised","Steam inhalation with a few tulsi leaves","Avoid dust and cold air"], yoga: ["Bhujangasana (cobra pose)","Anulom Vilom, gentle breathing","Sukhasana with slow deep breaths"] },
+    { keys: ["headache","head","migraine"], title: "Headache",
+      remedies: ["Massage the temples with a little warm sesame or coconut oil.","Sip ginger tea with a drop of honey.","Apply a thin sandalwood paste on the forehead if the head feels hot.","Drink a glass of water, since dehydration is a common trigger."],
+      dos: ["Regular meals","Plenty of water","Coconut water in summer"], donts: ["Skipping meals","Too much caffeine","Long screen time without breaks"],
+      lifestyle: ["Rest in a dim, quiet room","Sleep at the same time each night","Take a screen break every 45 minutes"], yoga: ["Balasana (child’s pose)","Shavasana for 10 minutes","Sheetali pranayama (cooling breath)"] },
+    { keys: ["bloat","gas","indigest","acid","digest","constipat","stomach"], title: "Bloating and weak digestion",
+      remedies: ["Chew ½ tsp roasted fennel seeds after meals.","Drink warm ajwain water, ½ tsp ajwain in a cup of hot water.","Sip jeera, coriander and fennel tea (CCF tea) through the day.","Take a small piece of fresh ginger with rock salt before meals."],
+      dos: ["Eat at fixed times","Warm, freshly cooked food","Walk for 10 minutes after meals"], donts: ["Raw salads late in the day","Cold water with meals","Eating when not hungry"],
+      lifestyle: ["Make lunch your largest meal","Eat slowly and without screens","Keep dinner light and early"], yoga: ["Pavanamuktasana (wind-relieving pose)","Vajrasana after meals","Ardha Matsyendrasana (seated twist)"] },
+    { keys: ["stress","anxi","worry","tense","overwhelm","sleep","insomnia","restless"], title: "Stress and restless sleep",
+      remedies: ["Drink warm milk with a pinch of nutmeg at night.","Massage the soles of the feet with warm sesame oil before bed.","Brew a calming tea of brahmi or tulsi leaves.","Try ashwagandha only after checking with your Ayurvedic doctor."],
+      dos: ["Warm, grounding foods such as ghee and rice","A fixed bedtime","A few minutes of quiet each morning"], donts: ["Caffeine after noon","Phone in bed","Skipping meals"],
+      lifestyle: ["Wind down for 30 minutes before sleep","Spend time outdoors in the morning","Write down worries before bed"], yoga: ["Nadi Shodhana (alternate nostril breathing)","Viparita Karani (legs up the wall)","Bhramari (humming bee breath)"] }
+  ],
+  check(q) {
+    if (RED_FLAGS.test(q)) return { redFlag: true, result: null };
+    const s = q.toLowerCase();
+    return { redFlag: false, result: this.data.find(d => d.keys.some(k => s.includes(k))) || null };
+  }
+};
+
+const REMEDIES = [
+  { name: "Tulsi–ginger kadha", for: "cough", how: "Simmer 8 tulsi leaves and a thumb of ginger in a cup of water for 5 minutes." },
+  { name: "Ajwain water", for: "bloating", how: "Steep ½ tsp ajwain in hot water and sip after meals." },
+  { name: "Golden milk", for: "stress", how: "Warm milk with ¼ tsp turmeric and a pinch of nutmeg before bed." },
+  { name: "CCF tea", for: "bloating", how: "Equal parts cumin, coriander and fennel simmered in water." },
+  { name: "Sandalwood paste", for: "headache", how: "A thin layer on the forehead for a cooling, calming effect." },
+  { name: "Padabhyanga", for: "stress", how: "Massage warm sesame oil into the soles of the feet at night." }
+];
+
+const VIDEOS = [
+  { t: "Vata, Pitta, Kapha in plain words", d: "What the three doshas mean and how they show up day to day.", len: "8:40", src: "" },
+  { t: "Finding your dominant dosha", d: "Observations that help you notice your own tendencies.", len: "6:15", src: "" },
+  { t: "Dinacharya: the Ayurvedic morning", d: "Waking early, tongue scraping, oil pulling and warm water.", len: "9:05", src: "" },
+  { t: "An evening routine for deep sleep", d: "Light dinner, foot massage and a calm wind-down.", len: "5:30", src: "" }
+];
+
+/* ---------- Helpers ---------- */
+const $ = (s, el = document) => el.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const today = () => new Date().toISOString().slice(0, 10);
+document.querySelectorAll("[data-close]").forEach(b => b.addEventListener("click", () => b.closest("dialog").close()));
+document.querySelectorAll("dialog").forEach(d => d.addEventListener("click", e => { if (e.target === d) d.close(); }));
+
+/* ---------- Chips and remedies ---------- */
+const QUICK = ["cough", "headache", "bloating", "stress"];
+function fillChecker(term) { $("#q").value = term; $("#checker").scrollIntoView(); $("#checkForm").requestSubmit(); }
+$("#heroChips").innerHTML = QUICK.map(t => `<button class="chip !bg-transparent border-ondeep/40 hover:!bg-ondeep hover:!text-deep" data-term="${t}">${t}</button>`).join("");
+$("#quickChips").innerHTML = QUICK.map(t => `<button class="chip" data-term="${t}">${t}</button>`).join("");
+document.addEventListener("click", e => { const b = e.target.closest("[data-term]"); if (b) fillChecker(b.dataset.term); });
+
+$("#remedyGrid").innerHTML = REMEDIES.map(r => `
+  <article class="rounded-2xl border border-line bg-card p-6 flex flex-col">
+    <h3 class="text-xl font-semibold">${r.name}</h3>
+    <p class="mt-2 text-muted flex-1">${r.how}</p>
+    <button class="mt-4 self-start text-sm font-semibold text-leaf underline underline-offset-4" data-term="${r.for}">See guidance for ${r.for}</button>
+  </article>`).join("");
+
+/* ---------- Symptom checker ---------- */
+const list = (items, cls = "") => `<ul class="mt-3 space-y-2">${items.map(i => `<li class="flex gap-2"><span class="${cls} mt-2 w-1.5 h-1.5 rounded-full bg-current shrink-0"></span><span>${esc(i)}</span></li>`).join("")}</ul>`;
+const card = (title, body, extra = "") => `<section class="rounded-2xl border border-line bg-bg p-6 ${extra}"><h3 class="text-xl font-semibold">${title}</h3>${body}</section>`;
+
+function renderResult(r, q) {
+  $("#results").innerHTML = `<div class="fade">
+    <h3 class="text-2xl font-semibold mb-5">${esc(r.title)}</h3>
+    <div class="grid gap-5 md:grid-cols-2">
+      ${card("Home remedies", list(r.remedies, "text-gold"), "md:col-span-2")}
+      ${card("Diet do’s", list(r.dos, "text-leaf"))}
+      ${card("Diet don’ts", list(r.donts, "text-warn"))}
+      ${card("Lifestyle tips", list(r.lifestyle, "text-gold"))}
+      ${card("Yoga and breathwork", list(r.yoga, "text-leaf"))}
+    </div>
+    <p class="mt-5 text-sm text-muted">If symptoms last more than a few days or get worse, please see a doctor.</p></div>`;
+}
+
+$("#checkForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const q = $("#q").value.trim(), msg = $("#formMsg"), out = $("#results");
+  msg.textContent = "";
+  if (q.length < 3) { msg.textContent = "Describe your concern in a few words, for example “dry cough”."; return; }
+  out.innerHTML = `<p class="text-muted">Looking for guidance…</p>`;
+  try {
+    const data = await API.checkSymptoms(q);
+    if (data.redFlag) { out.innerHTML = ""; $("#redFlag").showModal(); return; }
+    if (!data.result) {
+      out.innerHTML = card("We couldn’t match that yet", `<p class="mt-2 text-muted">Try naming the main symptom, such as cough, headache, bloating or stress. For anything that worries you, please see a doctor.</p>`);
+      return;
+    }
+    renderResult(data.result, q);
+  } catch (err) {
+    out.innerHTML = "";
+    msg.textContent = "Something went wrong while fetching guidance. Check your connection and try again.";
+  }
+});
+
+/* ---------- Videos ---------- */
+$("#videoGrid").innerHTML = VIDEOS.map((v, i) => `
+  <button class="text-left group" data-video="${i}" aria-label="Play ${esc(v.t)}">
+    <div class="aspect-video rounded-xl bg-deep text-ondeep relative overflow-hidden grid place-items-center">
+      <svg class="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 100 56" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="${20 + i * 20}" cy="30" r="${14 + i * 3}" stroke-width=".6"/><circle cx="${20 + i * 20}" cy="30" r="${8 + i * 2}" stroke-width=".6"/></svg>
+      <span class="relative w-12 h-12 rounded-full bg-gold text-white grid place-items-center group-hover:scale-105 transition-transform"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+      <span class="absolute bottom-2 right-2 text-xs bg-black/50 rounded px-2 py-0.5">${v.len}</span>
+    </div>
+    <h3 class="mt-3 text-lg font-semibold">${esc(v.t)}</h3>
+    <p class="text-sm text-muted">${esc(v.d)}</p>
+  </button>`).join("");
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-video]"); if (!b) return;
+  const v = VIDEOS[b.dataset.video];
+  $("#vidTitle").textContent = v.t; $("#vidDesc").textContent = v.d;
+  // Swap this placeholder for an <iframe> or <video> using v.src once your videos are hosted.
+  $("#vidStage").textContent = v.src ? "" : "Video player goes here. Add a video link in the VIDEOS list.";
+  $("#vidModal").showModal();
+});
+
+/* ---------- Daily check-in ---------- */
+const OPTIONS = { mood: ["Low", "Okay", "Good", "Great"], energy: ["Tired", "Steady", "Energised"], digestion: ["Heavy", "Normal", "Light"] };
+const picked = {};
+document.querySelectorAll("[data-group]").forEach(g => {
+  const k = g.dataset.group;
+  g.innerHTML = OPTIONS[k].map(o => `<button type="button" class="chip" aria-pressed="false">${o}</button>`).join("");
+  g.addEventListener("click", e => {
+    const b = e.target.closest(".chip"); if (!b) return;
+    g.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", "false"));
+    b.setAttribute("aria-pressed", "true"); picked[k] = b.textContent;
+  });
+});
+async function renderWeek() {
+  const all = await API.getCheckins(), days = [];
+  for (let i = 6; i >= 0; i--) { const d = new Date(); d.setDate(d.getDate() - i); days.push(d); }
+  $("#week").innerHTML = days.map(d => {
+    const done = !!all[d.toISOString().slice(0, 10)];
+    return `<div class="text-center text-xs text-muted"><div class="w-9 h-9 rounded-full grid place-items-center border border-line ${done ? "bg-leaf text-white border-leaf" : ""}" title="${done ? "Checked in" : "No check-in"}">${done ? "&#10003;" : ""}</div>${d.toLocaleDateString("en", { weekday: "narrow" })}</div>`;
+  }).join("");
+}
+$("#checkinForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const m = $("#checkinMsg");
+  if (!picked.mood || !picked.energy || !picked.digestion) { m.className = "text-sm text-warn"; m.textContent = "Choose mood, energy and digestion first."; return; }
+  await API.saveCheckin({ date: today(), ...picked, sleep: Number($("#sleep").value) });
+  m.className = "text-sm text-leaf"; m.textContent = "Check-in saved."; renderWeek();
+});
+
+/* ---------- Reminders ---------- */
+let reminders = [];
+function renderReminders() {
+  const t = today(); reminders.sort((a, b) => a.time.localeCompare(b.time));
+  const done = reminders.filter(r => r.takenOn === t).length;
+  $("#progress").textContent = reminders.length ? `${done} of ${reminders.length} taken today` : "";
+  $("#remList").innerHTML = reminders.length ? reminders.map(r => `
+    <li class="flex items-center gap-3 py-3">
+      <input type="checkbox" id="r${r.id}" data-id="${r.id}" ${r.takenOn === t ? "checked" : ""}>
+      <label for="r${r.id}" class="flex-1 ${r.takenOn === t ? "line-through text-muted" : ""}">${esc(r.name)}<span class="block text-sm text-muted">${r.time}</span></label>
+      <button class="text-sm text-muted underline" data-del="${r.id}" aria-label="Remove ${esc(r.name)}">Remove</button>
+    </li>`).join("") : `<li class="py-4 text-muted">No reminders yet. Add your first medicine or herb below.</li>`;
+}
+$("#remList").addEventListener("change", async e => {
+  const id = e.target.dataset.id; if (!id) return;
+  const r = reminders.find(x => String(x.id) === id); r.takenOn = e.target.checked ? today() : null;
+  await API.saveReminders(reminders); renderReminders();
+});
+$("#remList").addEventListener("click", async e => {
+  const id = e.target.dataset.del; if (!id) return;
+  reminders = reminders.filter(x => String(x.id) !== id); await API.saveReminders(reminders); renderReminders();
+});
+$("#remForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const name = $("#remName").value.trim(); if (!name) return;
+  reminders.push({ id: Date.now(), name, time: $("#remTime").value, takenOn: null });
+  await API.saveReminders(reminders); $("#remName").value = ""; renderReminders();
+});
+
+(async function init() {
+  reminders = await API.getReminders(); renderReminders(); renderWeek();
+})();
+</script>
+</body>
+</html>
