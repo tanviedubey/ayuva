@@ -1,0 +1,82 @@
+// SAMPLE DATA. Source titles/URLs are public pages recorded by the developer and MUST be opened and verified by a
+// qualified reviewer before approval. Summaries are deliberately conservative: no doses, no cure claims.
+// Nothing here is served to users unless review_status = 'approved'.
+const NOTE = "SAMPLE: reviewer must open the URL, confirm the page says what is claimed, then set accessed_at.";
+export const SOURCES = [
+  { key: "nccih-ayurveda", title: "Ayurvedic Medicine: In Depth", organization: "NCCIH (U.S. National Institutes of Health)", url: "https://www.nccih.nih.gov/health/ayurvedic-medicine-in-depth", source_type: "public_health_agency" },
+  { key: "nccih-ginger", title: "Ginger", organization: "NCCIH (U.S. National Institutes of Health)", url: "https://www.nccih.nih.gov/health/ginger", source_type: "public_health_agency" },
+  { key: "nhs-fever", title: "High temperature (fever) in adults", organization: "NHS (UK)", url: "https://www.nhs.uk/conditions/fever-in-adults/", source_type: "public_health_agency" },
+  { key: "nhs-cough", title: "Cough", organization: "NHS (UK)", url: "https://www.nhs.uk/conditions/cough/", source_type: "public_health_agency" },
+  { key: "nhs-headache", title: "Headaches", organization: "NHS (UK)", url: "https://www.nhs.uk/conditions/headaches/", source_type: "public_health_agency" },
+  { key: "nhs-indigestion", title: "Indigestion", organization: "NHS (UK)", url: "https://www.nhs.uk/conditions/indigestion/", source_type: "public_health_agency" },
+  { key: "nhs-insomnia", title: "Insomnia", organization: "NHS (UK)", url: "https://www.nhs.uk/conditions/insomnia/", source_type: "public_health_agency" },
+].map((s) => ({ ...s, notes: NOTE }));
+
+const TRAD = "nccih-ayurveda";
+export const ENTRIES = [
+  {
+    slug: "fever-general-care", topic: "fever", title: "Fever", evidence_level: "guideline",
+    content: "Fever is a raised body temperature, often a sign that the body is responding to an infection. General care focuses on rest, fluids and knowing when to get medical advice.",
+    traditional: "In Ayurveda fever is called jvara and is traditionally approached with rest, light food and warm fluids. This is traditional use, not clinical proof.",
+    scientific: "Standard public-health guidance for fever in adults emphasises rest, drinking fluids and monitoring symptoms, and advises medical advice when fever is high or persistent. Evidence for specific Ayurvedic preparations is not assessed here.",
+    risks: "Herbal products are not risk-free. This entry does not recommend any specific herb or preparation.",
+    contra: null, interactions: "Herbal products can interact with prescription medicines. Ask a pharmacist or doctor before combining them.",
+    seek: "See a clinician if the fever is high, lasts more than a few days, or comes with rash, stiff neck, confusion, trouble breathing or inability to drink fluids.",
+    details: { selfCare: ["Rest", "Drink fluids regularly", "Wear light clothing and keep the room comfortably cool", "Eat light food as appetite allows", "Follow the label or your clinician’s advice for any fever medicine"],
+      avoid: ["Avoid strenuous exercise while you have a fever"], redFlags: ["Rash or stiff neck", "Confusion or severe drowsiness", "Trouble breathing", "Unable to keep fluids down", "Fever lasting more than a few days"],
+      evidenceLimitations: "Guidance sources cover general care, not Ayurvedic treatments." },
+    sources: [["nhs-fever", "General fever care and when to seek help"], [TRAD, "Traditional context (general)"]],
+  },
+  {
+    slug: "cough-general-care", topic: "cough", title: "Cough and throat irritation", evidence_level: "guideline",
+    content: "Most coughs with colds settle by themselves. General care focuses on rest, fluids and watching for warning signs.",
+    traditional: "Traditional Ayurvedic practice (kasa) uses warm fluids, spiced teas and steam inhalation for cough. These are traditional uses and are not clinically proven here.",
+    scientific: "Public-health guidance says most coughs clear within a few weeks, recommends rest and fluids, and advises seeing a clinician for a cough that lasts for weeks or comes with blood, breathlessness or chest pain. Evidence for specific herbal remedies is limited and not assessed here.",
+    risks: "Smoke and dust can worsen cough. Herbal products are not risk-free.",
+    contra: null, interactions: "Herbal products can interact with prescription medicines. Ask a pharmacist or doctor.",
+    seek: "See a clinician if cough lasts for weeks, or comes with blood, breathlessness, wheeze, chest pain or a fever that does not settle.",
+    details: { selfCare: ["Rest and drink plenty of fluids", "Warm drinks can soothe the throat for many people", "Avoid smoke and dusty air", "Wash hands and cover coughs to avoid spreading illness"],
+      avoid: ["Honey is not suitable for babies under 12 months"], redFlags: ["Coughing up blood", "Breathlessness or wheeze", "Chest pain", "Cough lasting for weeks", "Fever that does not settle"],
+      evidenceLimitations: "Guidance sources address general care; traditional remedies are not evaluated by them." },
+    sources: [["nhs-cough", "General cough care and warning signs"], [TRAD, "Traditional context (general)"]],
+  },
+  {
+    slug: "headache-general-care", topic: "headache", title: "Headache", evidence_level: "guideline",
+    content: "Most headaches are not serious. General care focuses on rest, fluids, regular meals and sleep, and recognising warning signs.",
+    traditional: "Traditional Ayurveda (shiroroga) uses rest, oil massage and cooling applications for headache. These are traditional uses and are not clinically proven here.",
+    scientific: "Public-health guidance describes common headache triggers such as dehydration, missed meals, poor sleep and stress, and advises urgent care for sudden severe headache, headache after a head injury, or headache with fever and stiff neck, confusion, weakness or vision changes.",
+    risks: "Skin applications can irritate or cause allergy; patch-test anything new and stop if irritation occurs.",
+    contra: null, interactions: "Herbal products can interact with prescription medicines. Ask a pharmacist or doctor.",
+    seek: "Get urgent care for a sudden severe headache or one after a head injury. See a clinician if headaches are frequent, worsening or unusual for you.",
+    details: { selfCare: ["Rest in a quiet, dim room", "Drink water regularly", "Keep regular meals and sleep times", "Take regular breaks from screens"],
+      avoid: ["Notice whether caffeine or skipped meals seem to trigger your headaches"], redFlags: ["Sudden, severe “worst ever” headache", "Headache after a head injury", "Fever with stiff neck", "Confusion, weakness or vision changes"],
+      evidenceLimitations: "Guidance sources address general care, not Ayurvedic treatments." },
+    sources: [["nhs-headache", "Headache care and warning signs"], [TRAD, "Traditional context (general)"]],
+  },
+  {
+    slug: "digestion-general-care", topic: "digestion", title: "Bloating and weak digestion", evidence_level: "guideline",
+    content: "Occasional bloating or indigestion is common. General care focuses on eating habits and recognising warning signs.",
+    traditional: "Traditional Ayurveda links digestive discomfort to weak digestive fire (agni) and favours regular, warm, freshly cooked meals and spices such as ginger and fennel. This is traditional use and is not clinically proven here.",
+    scientific: "Public-health guidance for indigestion describes eating smaller meals, eating slowly, and limiting alcohol and smoking, and advises seeing a clinician for persistent symptoms or alarm features. The NCCIH ginger summary describes what is and is not known about ginger; evidence for general bloating specifically is limited.",
+    risks: "Herbal supplements are not risk-free and quality varies.",
+    contra: null, interactions: "Herbal products, including ginger supplements, may interact with some medicines such as blood thinners. Ask a pharmacist or doctor.",
+    seek: "See a clinician for black or bloody stools, persistent vomiting, unintended weight loss, trouble swallowing, or severe or persistent abdominal pain.",
+    details: { selfCare: ["Eat at regular times and eat slowly", "Choose smaller, lighter meals if you feel full or bloated", "A short walk after meals", "Notice which foods trigger your symptoms"],
+      avoid: ["Large late-night meals", "Smoking and excess alcohol, which can worsen indigestion"], redFlags: ["Black or bloody stools", "Persistent vomiting", "Unintended weight loss", "Trouble or pain swallowing", "Severe or persistent abdominal pain"],
+      evidenceLimitations: "Evidence for traditional digestive remedies is limited." },
+    sources: [["nhs-indigestion", "Indigestion self-care and warning signs"], ["nccih-ginger", "What is known about ginger"], [TRAD, "Traditional context (general)"]],
+  },
+  {
+    slug: "stress-sleep-general-care", topic: "stress", title: "Stress and restless sleep", evidence_level: "guideline",
+    content: "Short spells of stress and poor sleep are common. General care focuses on sleep habits and knowing when to ask for support.",
+    traditional: "Traditional Ayurveda emphasises regular routines, adequate sleep and calming practices such as gentle breathing and yoga. Herbs such as ashwagandha and brahmi are traditionally used but are not recommended or assessed here.",
+    scientific: "Public-health sleep guidance recommends regular sleep and wake times, a wind-down routine, limiting caffeine and screens before bed, and seeing a clinician if sleep problems last for weeks or affect daily life. Evidence for specific herbs for sleep or stress is limited and mixed.",
+    risks: "Herbs sold for sleep or stress can cause side effects and vary in quality.",
+    contra: null, interactions: "Herbal products can interact with prescription medicines, including sedatives and antidepressants. Ask a pharmacist or doctor first.",
+    seek: "See a clinician if sleep or mood problems last for weeks or affect daily life. If you have thoughts of harming yourself, call 112 now; in India Tele-MANAS (14416) offers free support.",
+    details: { selfCare: ["Keep a regular bedtime and wake time", "Wind down before bed", "Limit caffeine later in the day", "Keep phones and bright screens away from bed", "Try gentle movement or breathing practices you find calming"],
+      avoid: ["Avoid relying on alcohol to fall asleep"], redFlags: ["Thoughts of harming yourself", "Low mood or anxiety that affects daily life", "Sleep problems lasting weeks"],
+      evidenceLimitations: "Evidence for herbal sleep or stress remedies is limited and mixed." },
+    sources: [["nhs-insomnia", "Sleep habits and when to seek help"], [TRAD, "Traditional context (general)"]],
+  },
+];
